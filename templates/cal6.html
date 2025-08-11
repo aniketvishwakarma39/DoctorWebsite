@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cal6</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f8f9fa;
+        }
+
+        .navbar {
+            background-color: #224e6c;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar-left {
+            font-size: 16px;
+            font-weight: bold;
+        }
+        .navbar-right {
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .section.contact-form {
+            max-width: 500px;
+            margin: 40px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .section.contact-form h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .section.contact-form input,
+        .section.contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        .section.contact-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #224e6c;
+            border: none;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        .section.contact-form button:hover {
+            background-color: #224e6c;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <div class="navbar-left">Ask Your Secret Question</div>
+        <div class="navbar-right">Dr. Anand Kumar</div>
+    </div>
+
+   <div class="section contact-form" id="contact">
+    <form action="https://api.web3forms.com/submit" method="POST">
+        <h3 id="love">Contact US</h3>
+
+        <input type="hidden" name="access_key" value="e6d7fdf0-36f7-47cf-b620-9f4b640e1456" /> 
+
+        <input type="text" name="ani1" value="{{n1}}" placeholder="Name" required />
+        <input type="email" name="ani2" value="{{n2}}" placeholder="Email" required />
+        <textarea rows="5" name="ani3" placeholder="Message" required>{{n3}}</textarea>
+        <button type="submit">Send Message</button>
+    </form>
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dr. Anand Kumar - Profile</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #f8f9fa, #e9ecef);
+      margin: 0;
+      padding: 0;
+    }
+
+    .navbar {
+      background-color: #224e6c;
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 18px;
+      font-weight: bold;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .form-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: calc(100vh - 60px);
+    }
+
+    form {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 100%;
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    button {
+      background: #224e6c;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+ footer {
+      text-align: center;
+      padding: 15px;
+      background-color: rgba(0, 0, 0, 0.8);
+      color: #ddd;
+      font-size: 14px;
+      margin-top: auto;
+    }
+    button:hover {
+      background: #1d92dfff;
+    }
+
+    p {
+      margin-top: 15px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    @media (max-width: 500px) {
+      form {
+        padding: 15px;
+      }
+      input, select, button {
+        font-size: 14px;
+        padding: 8px;
+      }
+      .navbar {
+        font-size: 16px;
+        padding: 12px 15px;
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <div>Dr. Anand Yadav</div>
+    <div>General Health Calculator</div>
+  </div>
+
+  <div class="form-container">
+    <form method="post" action="{% url 'cal3cse' %}">
+      <p> 3. BMI Calculator</p>
+      {% csrf_token %}
+      <input type="text" name="nam1" placeholder="Enter Your height(cm)" required>
+      <input type="text" name="nam2" placeholder="Enter Your weight(kg)" required>
+
+      <button type="submit">save</button>
+
+      <p>output</p>
+      <input type="text" value="{{a}} "/>
+    </form>
+  </div>
+<footer>
+    © 2025 Nomads Smith. All rights reserved.
+  </footer>
+</body>
+</html>

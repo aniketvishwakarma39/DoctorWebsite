@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health Calculator</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #f8f9fa;
+            height:100vh;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #224e6c;
+            color: white;
+            padding: 10px 20px;
+        }
+        .navbar h1 {
+            margin: 0;
+            font-size: 22px;
+        }
+        .navbar span {
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .button-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            padding: 30px;
+        }
+        .big-button {
+            display: block;
+            width: 250px;
+            padding: 20px;
+            text-align: center;
+            background: white;
+            color: #224e6c;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 10px;
+            border: 2px solid #224e6c;
+            box-shadow: 0px 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+         footer {
+      text-align: center;
+      padding: 15px;
+      background-color: rgba(0, 0, 0, 0.8);
+      color: #ddd;
+      font-size: 14px;
+      margin-top: 23%;
+    }
+        .big-button:hover {
+            background: #224e6c;
+            color: white;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="navbar">
+        <h1>Dr. Anand Kumar</h1>
+        <span>Health Calculator</span>
+    </div>
+
+    <div class="button-container">
+        <a href="{% url 'calcse' %}" class="big-button">💧 Water Intake Calculator</a>
+        <a href="{% url 'cal2cse' %}" class="big-button">⚖️ Ideal Weight Calculator</a>
+        <a href="{% url 'cal3cse' %}" class="big-button">📊 BMI Calculator</a>
+        <a href="{% url 'cal4cse' %}" class="big-button">📞 BMR Calculator</a>
+    </div>
+  <footer>
+    © 2025 Nomads Smith. All rights reserved.
+  </footer>
+</body>
+</html>

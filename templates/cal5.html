@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dr. Anand Kumar - Book Appointment</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #f8f9fa, #e9ecef);
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .navbar {
+      background-color: #224e6c;
+      color: white;
+      padding: 15px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 18px;
+      font-weight: bold;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .form-container {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+    }
+
+    form {
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      width: 100%;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 15px;
+      color: #224e6c;
+    }
+
+    input, select, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    textarea {
+      resize: vertical;
+    }
+
+    button {
+      background: #224e6c;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: #1d92dfff;
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      background-color: rgba(0, 0, 0, 0.8);
+      color: #ddd;
+      font-size: 14px;
+    }
+
+    @media (max-width: 500px) {
+      form {
+        padding: 15px;
+      }
+      input, select, textarea, button {
+        font-size: 14px;
+        padding: 8px;
+      }
+      .navbar {
+        font-size: 16px;
+        padding: 12px 15px;
+        flex-direction: column;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="navbar">
+    <div>Dr. Anand Kumar</div>
+    <div>Book Appointment</div>
+  </div>
+
+  <div class="form-container">
+    <form method="post" action="{% url 'cal5cse' %}">
+      {% csrf_token %}
+      <h2>Appointment Form</h2>
+
+      <input type="text" name="name" placeholder="Full Name" required>
+      <input type="tel" name="phone" placeholder="Phone Number" pattern="\d{10}" required>
+      <input type="email" name="email" placeholder="Email (optional)">
+
+      <label>Select Date</label>
+      <input type="date" name="date" required>
+
+      <label>Select Time</label>
+      <input type="time" name="time" required>
+
+      <select name="reason" required>
+        <option value="">Select Reason for Visit</option>
+        <option>General Consultation</option>
+        <option>Follow-up Visit</option>
+        <option>Lab Report Review</option>
+        <option>Other</option>
+      </select>
+
+      <textarea name="notes" placeholder="Additional Notes (optional)"></textarea>
+
+      <button type="submit">Book Now</button>
+
+      {% if message %}
+      <p style="text-align:center; color:green;">{{ message }}</p>
+      {% endif %}
+    </form>
+  </div>
+
+  <footer>
+    © 2025 Nomads Smith All rights reserved.
+  </footer>
+
+</body>
+</html>

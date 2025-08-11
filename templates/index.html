@@ -1,0 +1,386 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dr. Anand Kumar - Profile</title>
+  <link rel="stylesheet" href="{% static 'style.css' %}">
+  
+</head>
+<style>
+      * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      line-height: 1.6;
+    }
+
+    .top-navbar {
+      background: #224e6c;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0 1rem;
+      height: 60px;
+      position: relative;
+    }
+    header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #1f567a;
+  padding: 10px 20px;
+  color: white;
+}
+
+    .logo {
+      font-size: 1.3rem;
+      font-weight: bold;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+      padding: 0.4rem 0.6rem;
+      border-radius: 4px;
+      transition: background 0.3s;
+    }
+
+    .nav-links a:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+      margin-left:auto;
+    }
+
+@media (max-width: 768px) {
+   .menu-toggle {
+    display: block;
+  }
+}
+    @media (max-width: 768px) {
+      .nav-links {
+        flex-direction: column;
+        width: 100%;
+        display: none;
+        margin-top: 0.5rem;
+      }
+    }
+      @media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 60px; 
+    left: 0;
+    background: transparent;
+    flex-direction: column;
+    width: 100%;
+    display: none;
+    margin-top: 0;
+    padding: 0.5rem 0;
+  }
+
+      .nav-links.show {
+        display: flex;
+        
+      }
+
+      .menu-toggle {
+        display: block;
+        margin-left: auto;
+      }
+    }
+
+.hero {
+  background: #31678d;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 2rem;
+  height: 350px; 
+}
+
+.hero-left img {
+  height: 300px; 
+  width: auto;
+  object-fit: cover;
+  object-position: bottom;
+}
+
+.hero-right {
+  max-width: 50%;
+}
+
+.hero-right h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero-right p {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.btn-group .btn {
+  padding: 0.6rem 1.2rem;
+  margin-right: 0.8rem;
+  border: none;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.book {
+  background: white;
+  color: #31678d;
+}
+
+.youtube {
+  background: black;
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+    height: auto;
+  }
+  .hero-left img {
+    height: 200px;
+  }
+  .hero-right {
+    max-width: 100%;
+    margin-top: 1rem;
+  }
+}
+
+
+    .container {
+      padding: 2rem 1rem;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .section {
+      margin-bottom: 2rem;
+    }
+
+    .section h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+
+    .services ul {
+      list-style-type: disc;
+      margin-left: 20px;
+    }
+
+    .clinic-info {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .map {
+      width: 100%;
+      height: 150px; 
+      background: #ddd;
+      margin-top: 1rem;
+    }
+    .map img{
+      height:150px;
+      width:100%;
+    }
+    #ani12{
+      margin-top:20px;
+    }
+    .video-card img,
+    .video-card {
+      width: 100%;
+      max-width: 300px;
+      height: auto;
+    }
+
+    .ad-box {
+      background: #31678d;
+      color: white;
+      padding: 1rem;
+      text-align: center;
+      border-radius: 10px;
+      margin-top: 1rem;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 0.6rem;
+      margin: 0.5rem 0;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .contact-form button {
+      padding: 0.6rem 1rem;
+      background: #31678d;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .footer-info {
+      margin-top: 1rem;
+    }
+
+    .footer-info p {
+      margin: 0.3rem 0;
+    }
+     footer {
+      text-align: center;
+      padding: 15px;
+      background-color: rgba(0, 0, 0, 0.8);
+      color: #ddd;
+      font-size: 14px;
+      margin-top: auto;
+    }
+    @media (min-width: 768px) {
+      header {
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 2rem;
+        text-align: left;
+        height: 300px; 
+      }
+
+      header img {
+        width: 150px;
+        height: 150px;
+      }
+
+      .clinic-info {
+        flex-direction: row;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+    }
+
+    @media (max-width: 500px) {
+      header {
+        height: auto; 
+        padding: 1.5rem 1rem;
+      }
+    }
+
+</style>
+<body>
+
+  <div class="top-navbar">
+    <div class="logo">Dr. Anand Kumar</div>
+    <div class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('show')">☰</div>
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#youtube">Channel</a>
+      <a href="{% url 'cal1cse' %}">Calculator</a>
+      <a href="{% url 'cal6cse' %}">Ask Que</a>
+
+    </div>
+  </div>
+
+<header class="hero">
+  <div class="hero-left">
+    <img src="/static/ani3.png" alt="Dr. Ravi Kumar" />
+  </div>
+  <div class="hero-right">
+    <h1>Dr. Anand Kumar</h1>
+    <p>Trusted Doctor & Competitive Exam Educator</p>
+    <div class="btn-group">
+      <a href="{% url 'cal5cse' %}" class="btn book">Book Appointment</a>
+<a href="https://youtube.com/@succespurbyanandkumar?si=6-7sOeMr1NLcsOTi" target="_blank">
+    <button id="ani12" class="btn youtube">Watch on YouTube</button>
+</a>
+    </div>
+  </div>
+</header>
+
+  <div class="container">
+    <div class="section about" id="about">
+      <h2>About</h2>
+      <p>Dr. Anand Kumar is a popular doctor and dedicated educator, providing healthcare to the village and preparing students for competitive exams.</p>
+    </div>
+
+    <div class="section services" id="services">
+      <h2>Clinic / Medical Services</h2>
+      <div class="clinic-info">
+        <ul>
+          <li>Fever</li>
+          <li>Skin Care</li>
+          <li>Child Care</li>
+          <li>Basic Surgeries</li>
+        </ul>
+        <div>
+          <p>Morning: 9 AM - 1 PM</p>
+          <p>Evening: 5 PM - 8 PM</p>
+          <div class="map">
+            <img src="/static/avi.jpg" alt="Dr. Ravi Kumar" />
+          </div>
+          <p>Emergency Contact: 9807087519</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid">
+      <div class="section video-card" id="youtube">
+        <h2>YouTube Education</h2>
+        <a href="https://youtube.com/@succespurbyanandkumar?si=6-7sOeMr1NLcsOTi" target="_blank">
+    <img src="/static/avi2.jpg" alt="YouTube Thumbnail">
+</a>
+
+      
+        <p>Join my YouTube family: 1650+ learners!</p>
+      </div>
+
+      <div class="section">
+        <h2>Advertisement & Promotion</h2>
+        <div class="ad-box">
+          <p>I also help local businesses grow – contact for promotion.</p>
+        </div>
+      </div>
+    </div>
+
+   
+        <p>📍Khidirganj Gazipur</p>
+        <p>📧anandkumaryadav001996@gmail.com</p>
+      </div>
+    </div>
+  </div>
+<footer>
+    © 2025 Nomads Smith. All rights reserved.
+  </footer>
+</body>
+</html>
